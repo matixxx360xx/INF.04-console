@@ -18,7 +18,7 @@ public class Zadanie
         Console.WriteLine(string.Join(",", tab));
     }
 
-    public void znajdz(int i)
+    public int Znajdz(int i)
     {
         int j = 0;
         int[] NewTab = new int[tab.Length + 1];
@@ -30,13 +30,9 @@ public class Zadanie
         }
         if (j < tab.Length)
         {
-            Console.WriteLine($"Znaleziono liczbę {i} na indeksie {j}");
+            return j;
         }
-        else
-        {
-
-            Console.WriteLine("Nie znaleziono!");
-        }
+        return -1;
     }
 
     public static void Main(string[] args)
@@ -44,7 +40,13 @@ public class Zadanie
         Zadanie z = new Zadanie();
         z.WypelnienieTablicy();
         z.WyswietlenieTablicy();
-        z.znajdz(4);
-
+        int value = 4;
+        if (z.Znajdz(value) > -1)
+        {
+            Console.WriteLine("Liczbe "+value+ " znaleziono na indeksie" + " " + z.Znajdz(value));
+        }
+        else {
+            Console.WriteLine("Nie znaleziono!");
+        }
     }
 }
